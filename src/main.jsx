@@ -1,3 +1,4 @@
+/** @jsx createElement */
 function createElement(type, props, ...children) {
   // type: 태그 이름('h1', 'div' 등)
   // props: 속성들(class, id 등)
