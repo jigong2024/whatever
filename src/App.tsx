@@ -1,20 +1,14 @@
 /** @jsx createElement */
 import "./style.css";
-
-function createElement(type, props, ...children) {
-  if (typeof type === "function") {
-    return type(props);
-  }
-
-  return {
-    type,
-    props: props || {},
-    children: children.flat(),
-  };
-}
+import {
+  ContentProps,
+  HeaderProps,
+  VirtualElement,
+} from "./types/createElementTypes";
+import { createElement } from "./jsx";
 
 // Header 컴포넌트
-function Header({ title, buttonText }) {
+function Header({ title, buttonText }: HeaderProps): VirtualElement {
   return (
     <div className="header">
       <h1 id="title">{title}</h1>
@@ -24,7 +18,7 @@ function Header({ title, buttonText }) {
 }
 
 // Content 컴포넌트
-function Content({ text }) {
+function Content({ text }: ContentProps): VirtualElement {
   return (
     <div className="container">
       <p id="content">{text}</p>
@@ -33,7 +27,7 @@ function Content({ text }) {
 }
 
 // App 컴포넌트
-function App() {
+function App(): VirtualElement {
   return (
     <div id="app">
       <Header title="Header" buttonText="login" />
