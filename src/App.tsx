@@ -6,6 +6,7 @@ import {
   VirtualElement,
 } from "./types/createElementTypes";
 import { createElement } from "./jsx";
+import { render } from "./render";
 
 // Header 컴포넌트
 function Header({ title, buttonText }: HeaderProps): VirtualElement {
@@ -38,4 +39,10 @@ function App(): VirtualElement {
 }
 
 const appElement = <App />;
+const container = document.getElementById("app");
+
+if (container) {
+  render(appElement, container);
+}
+
 console.log(JSON.stringify(appElement, null, 2));
