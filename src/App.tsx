@@ -7,25 +7,9 @@ import {
 } from "./types/createElementTypes";
 import { createElement } from "./jsx";
 import { render } from "./render";
-
-// Header 컴포넌트
-function Header({ title, buttonText }: HeaderProps): VirtualElement {
-  return (
-    <div className="header">
-      <h1 id="title">{title}</h1>
-      <button id="login">{buttonText}</button>
-    </div>
-  );
-}
-
-// Content 컴포넌트
-function Content({ text }: ContentProps): VirtualElement {
-  return (
-    <div className="container">
-      <p id="content">{text}</p>
-    </div>
-  );
-}
+import Header from "./components/Header";
+import Content from "./components/Content";
+import Counter from "./components/Counter";
 
 // App 컴포넌트
 function App(): VirtualElement {
@@ -33,6 +17,7 @@ function App(): VirtualElement {
     <div id="app">
       <Header title="Header" buttonText="login" />
       <h1>Hello, React!</h1>
+      <Counter />
       <Content text="Virtual DOM 이해 및 복잡한 구조의 컴포넌트 분석" />
     </div>
   );
